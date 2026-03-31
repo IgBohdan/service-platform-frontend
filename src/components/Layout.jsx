@@ -162,7 +162,7 @@ const Layout = () => {
                         <div className="hidden md:flex items-center gap-2">
                             {isAdmin && (
                                 <button
-                                    onClick={() => navigate('/bookings/new')}
+                                    onClick={() => navigate('/bookings')}
                                     className="btn-shad-primary !h-10 !px-6 !text-[10px] shadow-lg shadow-zinc-200"
                                 >
                                     Швидкий Запис
