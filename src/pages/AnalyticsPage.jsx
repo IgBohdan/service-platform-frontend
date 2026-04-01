@@ -116,11 +116,11 @@ const AnalyticsPage = () => {
 
                 <div className="card shadow-md p-6 border-zinc-200 hover:shadow-xl transition-all group">
                     <div className="flex items-center justify-between mb-4">
-                        <span className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em]">Статус Системи</span>
+                        <span className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em]"></span>
                         <div className="h-2 w-2 rounded-full bg-amber-500 group-hover:scale-150 transition-transform"></div>
                     </div>
-                    <div className="text-3xl font-black text-zinc-950 tracking-tighter">98%</div>
-                    <p className="text-[10px] text-zinc-400 font-bold mt-2 uppercase tracking-widest">Стабільність вузлів</p>
+                    <div className="text-3xl font-black text-zinc-950 tracking-tighter"></div>
+                    <p className="text-[10px] text-zinc-400 font-bold mt-2 uppercase tracking-widest"></p>
                 </div>
             </div>
 
