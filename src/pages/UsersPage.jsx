@@ -10,7 +10,7 @@ const UsersPage = () => {
 
     if (isLoading) return (
         <div className="flex items-center justify-center min-h-[500px]">
-          <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-zinc-950 border-opacity-20"></div>
+            <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-zinc-950 border-opacity-20"></div>
         </div>
     );
 
@@ -76,7 +76,7 @@ const UsersPage = () => {
                                                 <option value="admin">Адмін</option>
                                             </select>
                                             <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-zinc-400 group-hover/select:text-white transition-colors">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
                                             </div>
                                         </div>
                                     </td>
@@ -88,7 +88,7 @@ const UsersPage = () => {
                                     <td className="text-right pr-6 md:pr-10 py-5">
                                         <div className="flex items-center justify-end gap-3">
                                             <button className="p-2 text-zinc-300 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-all" title="Видалити">
-                                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /></svg>
                                             </button>
                                         </div>
                                     </td>
@@ -102,27 +102,27 @@ const UsersPage = () => {
                     </table>
                 </div>
             </div>
-            
+
             {/* System Intelligence Footer */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 opacity-30 group hover:opacity-100 transition-opacity">
-                 <div className="p-6 border border-zinc-200 rounded-3xl flex flex-col items-center text-center gap-3">
+            <div className="hidden grid-cols-1 md:grid-cols-3 gap-6 opacity-30 group hover:opacity-100 transition-opacity">
+                <div className="p-6 border border-zinc-200 rounded-3xl flex flex-col items-center text-center gap-3">
                     <div className="h-1.5 w-full bg-zinc-100 rounded-full overflow-hidden">
                         <div className="h-full bg-zinc-950 w-3/4 animate-pulse"></div>
                     </div>
                     <p className="text-[9px] font-black uppercase tracking-widest text-zinc-400">Memory Integrity: 99.2%</p>
-                 </div>
-                 <div className="p-6 border border-zinc-200 rounded-3xl flex flex-col items-center text-center gap-3">
+                </div>
+                <div className="p-6 border border-zinc-200 rounded-3xl flex flex-col items-center text-center gap-3">
                     <div className="h-1.5 w-full bg-zinc-100 rounded-full overflow-hidden">
                         <div className="h-full bg-zinc-950 w-1/2 animate-pulse"></div>
                     </div>
                     <p className="text-[9px] font-black uppercase tracking-widest text-zinc-400">Node Sync: Normal</p>
-                 </div>
-                 <div className="p-6 border border-zinc-200 rounded-3xl flex flex-col items-center text-center gap-3">
+                </div>
+                <div className="p-6 border border-zinc-200 rounded-3xl flex flex-col items-center text-center gap-3">
                     <div className="h-1.5 w-full bg-zinc-100 rounded-full overflow-hidden">
                         <div className="h-full bg-zinc-950 w-full animate-pulse"></div>
                     </div>
                     <p className="text-[9px] font-black uppercase tracking-widest text-zinc-400">Traffic Latency: 4ms</p>
-                 </div>
+                </div>
             </div>
         </div>
     );

@@ -150,9 +150,9 @@ const Layout = () => {
                         <div className="hidden sm:flex flex-col">
                             <h2 className="text-[11px] font-black text-zinc-950 uppercase tracking-[0.2em] opacity-80">{currentPageName}</h2>
                             <div className="flex items-center gap-2 mt-1">
-                                <span className="text-[8px] font-black text-zinc-300 uppercase underline decoration-zinc-200 underline-offset-4">ServCore v2.4</span>
+                                <span className="text-[8px] font-black text-zinc-300 uppercase underline decoration-zinc-200 underline-offset-4">ServCore v1.3</span>
                                 <div className="w-1 h-1 rounded-full bg-zinc-200"></div>
-                                <span className="text-[8px] font-black text-zinc-300 uppercase">Операційний Протокол</span>
+
                             </div>
                         </div>
                     </div>

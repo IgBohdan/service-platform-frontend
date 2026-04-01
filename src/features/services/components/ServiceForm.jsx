@@ -4,10 +4,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 const serviceSchema = z.object({
-  title: z.string().min(2, "Title requires at least 2 characters").max(100, "Title is too long (max 100)"),
-  description: z.string().min(1, "Description is required").max(500, "Description exceeds maximum capacity"),
-  price: z.coerce.number().min(0, "Rate cannot be negative"),
-  durationMinutes: z.coerce.number().min(5, "Duration must be at least 5 minutes"),
+  title: z.string().min(2, "Назва має містити щонайменше 2 символи").max(100, "Назва занадто довга (макс. 100)"),
+  description: z.string().min(1, "Опис є обов'язковим").max(500, "Опис перевищує максимальну довжину"),
+  price: z.coerce.number().min(0, "Тариф не може бути від'ємним"),
+  durationMinutes: z.coerce.number().min(5, "Тривалість має бути щонайменше 5 хвилин"),
   imageUrl: z.string().optional().or(z.literal("")),
 });
 
@@ -44,27 +44,27 @@ const ServiceForm = ({ service, onSubmit, onCancel }) => {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 animate-in fade-in duration-500">
       <div className="space-y-3">
         <label htmlFor="title" className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em] ml-1">
-          Service Protocol Title
+          Назва Послуги
         </label>
         <input
           id="title"
           {...register("title")}
           className={`input-shad !h-11 font-bold text-sm ${errors.title ? "border-rose-500 ring-rose-500" : ""}`}
-          placeholder="e.g. Technical Consultation"
+          placeholder="напр. Технічна Консультація"
         />
         {errors.title && <p className="text-[10px] font-black text-rose-600 uppercase tracking-widest ml-1 shake">{errors.title.message}</p>}
       </div>
 
       <div className="space-y-3">
         <label htmlFor="description" className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em] ml-1">
-          Definition Summary
+          Опис Послуги
         </label>
         <textarea
           id="description"
           {...register("description")}
           rows={3}
           className={`input-shad !h-auto py-3 font-medium text-sm resize-none ${errors.description ? "border-rose-500 ring-rose-500" : ""}`}
-            placeholder="Operational scope of the service definition..."
+            placeholder="Детальний опис послуги..."
         />
         {errors.description && <p className="text-[10px] font-black text-rose-600 uppercase tracking-widest ml-1 shake">{errors.description.message}</p>}
       </div>
@@ -72,7 +72,7 @@ const ServiceForm = ({ service, onSubmit, onCancel }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="space-y-3">
           <label htmlFor="price" className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em] ml-1">
-            Standard Rate ($)
+            Базовий Тариф ($)
           </label>
           <input
             type="number"
@@ -85,7 +85,7 @@ const ServiceForm = ({ service, onSubmit, onCancel }) => {
         </div>
         <div className="space-y-3">
           <label htmlFor="durationMinutes" className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em] ml-1">
-            Duration (min)
+            Тривалість (хв)
           </label>
           <input
             type="number"
@@ -100,7 +100,7 @@ const ServiceForm = ({ service, onSubmit, onCancel }) => {
 
       <div className="space-y-3">
         <label htmlFor="imageUrl" className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em] ml-1">
-          Visual Identity Link (Optional)
+          Посилання на Зображення (Необов'язково)
         </label>
         <input
           type="url"
@@ -112,9 +112,9 @@ const ServiceForm = ({ service, onSubmit, onCancel }) => {
       </div>
 
       <div className="flex flex-col-reverse sm:flex-row justify-end gap-3 pt-6 border-t border-zinc-50">
-        <button type="button" onClick={onCancel} className="btn-shad-outline h-11 px-6 text-[10px] font-black uppercase tracking-widest">Cancel</button>
+        <button type="button" onClick={onCancel} className="btn-shad-outline h-11 px-6 text-[10px] font-black uppercase tracking-widest">Скасувати</button>
         <button type="submit" className="btn-shad-primary h-11 px-10 text-[10px] font-black uppercase tracking-widest shadow-lg">
-          {service ? "Commit Changes" : "Create Definition"}
+          {service ? "Зберегти Зміни" : "Створити Послугу"}
         </button>
       </div>
     </form>

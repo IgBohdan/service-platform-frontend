@@ -62,9 +62,9 @@ const ServiceModal = ({ isOpen, onClose, service, onSubmit }) => {
         <div className="card-header border-b border-zinc-100 flex-row items-center justify-between space-y-0 pb-4 mb-6">
           <div>
             <h2 className="text-lg font-bold text-zinc-900 leading-none">
-                {service ? "Configure Definition" : "New Service Entry"}
+                {service ? "Налаштувати Послугу" : "Нова Послуга"}
             </h2>
-            <p className="text-xs text-zinc-500 mt-1.5">Define operational parameters for the service registry.</p>
+            <p className="text-xs text-zinc-500 mt-1.5">Налаштуйте параметри для обраної послуги.</p>
           </div>
           <button
             onClick={onClose}

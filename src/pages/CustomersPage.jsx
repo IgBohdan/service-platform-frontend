@@ -10,9 +10,9 @@ import {
 } from "../features/customers/customers.queries";
 
 const customerSchema = z.object({
-  firstName: z.string().min(2, "Identity requires 2+ characters"),
-  lastName: z.string().min(2, "Identity requires 2+ characters"),
-  email: z.string().email("Invalid protocol endpoint"),
+  firstName: z.string().min(2, "Має містити 2+ символи"),
+  lastName: z.string().min(2, "Має містити 2+ символи"),
+  email: z.string().email("Недійсний формат"),
   phone: z.string().optional(),
   address: z.object({
     city: z.string().optional(),
@@ -153,8 +153,8 @@ const CustomersPage = () => {
           <div className="card w-full max-w-lg shadow-2xl animate-in slide-in-from-bottom sm:zoom-in-95 duration-200 rounded-b-none sm:rounded-2xl border-zinc-200/50">
             <div className="card-header border-b border-zinc-50 flex flex-row items-center justify-between space-y-0 pb-6 mb-4 sticky top-0 bg-white z-10 p-8">
               <div>
-                <h3 className="text-xl font-black text-zinc-950 uppercase tracking-tight">Initialize Profile</h3>
-                <p className="text-[11px] text-zinc-400 mt-1 font-black uppercase tracking-widest">Map identity parameters for the registry.</p>
+                <h3 className="text-xl font-black text-zinc-950 uppercase tracking-tight">Створити Профіль</h3>
+                <p className="text-[11px] text-zinc-400 mt-1 font-black uppercase tracking-widest">Налаштувати параметри ідентифікації для реєстру.</p>
               </div>
               <button onClick={() => setShowCreateForm(false)} className="text-zinc-300 hover:text-zinc-950 transition-colors p-2 hover:bg-zinc-50 rounded-xl">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
@@ -164,46 +164,46 @@ const CustomersPage = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="card-content space-y-6 pb-12 sm:pb-10 max-h-[80vh] overflow-y-auto custom-scrollbar px-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-3">
-                  <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest ml-1">Identity Pr.</label>
-                  <input {...register("firstName")} className={`input-shad !h-12 font-bold text-sm ${errors.firstName ? 'border-rose-500 ring-rose-500' : ''}`} placeholder="e.g. Isaac" />
+                  <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest ml-1">Ім'я</label>
+                  <input {...register("firstName")} className={`input-shad !h-12 font-bold text-sm ${errors.firstName ? 'border-rose-500 ring-rose-500' : ''}`} placeholder="напр. Іван" />
                   {errors.firstName && <p className="text-rose-600 text-[10px] font-black uppercase tracking-widest mt-1 ml-1 shake">{errors.firstName.message}</p>}
                 </div>
                 <div className="space-y-3">
-                  <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest ml-1">Identity Fam.</label>
-                  <input {...register("lastName")} className={`input-shad !h-12 font-bold text-sm ${errors.lastName ? 'border-rose-500 ring-rose-500' : ''}`} placeholder="e.g. Asimov" />
+                  <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest ml-1">Прізвище</label>
+                  <input {...register("lastName")} className={`input-shad !h-12 font-bold text-sm ${errors.lastName ? 'border-rose-500 ring-rose-500' : ''}`} placeholder="напр. Франко" />
                   {errors.lastName && <p className="text-rose-600 text-[10px] font-black uppercase tracking-widest mt-1 ml-1 shake">{errors.lastName.message}</p>}
                 </div>
               </div>
               
               <div className="space-y-3">
-                <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest ml-1">Comm Endpoint</label>
-                <input type="email" {...register("email")} className={`input-shad !h-12 font-bold text-sm lowercase ${errors.email ? 'border-rose-500 ring-rose-500' : ''}`} placeholder="identity@servcore.protocol" />
+                <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest ml-1">Email</label>
+                <input type="email" {...register("email")} className={`input-shad !h-12 font-bold text-sm lowercase ${errors.email ? 'border-rose-500 ring-rose-500' : ''}`} placeholder="contact@example.com" />
                 {errors.email && <p className="text-rose-600 text-[10px] font-black uppercase tracking-widest mt-1 ml-1 shake">{errors.email.message}</p>}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-3">
-                  <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest ml-1">Voice Protocol</label>
-                  <input type="tel" {...register("phone")} className="input-shad !h-12 font-bold text-sm" placeholder="+0 000 000" />
+                  <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest ml-1">Телефон</label>
+                  <input type="tel" {...register("phone")} className="input-shad !h-12 font-bold text-sm" placeholder="+38 000 000 00 00" />
                 </div>
                 <div className="space-y-3">
-                  <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest ml-1">Region Map</label>
-                  <input {...register("address.city")} className="input-shad !h-12 font-bold text-sm" placeholder="Locality" />
+                  <label className="text-[10px] font-black text-zinc-400 uppercase tracking-widest ml-1">Місто</label>
+                  <input {...register("address.city")} className="input-shad !h-12 font-bold text-sm" placeholder="Київ" />
                 </div>
               </div>
 
               {createCustomerMutation.isError && (
                 <div className="p-5 bg-rose-50 border border-rose-100 rounded-2xl animate-in shake">
                   <p className="text-[10px] font-black text-rose-600 uppercase tracking-widest leading-relaxed">
-                    Registry Exception: {createCustomerMutation.error.message || "Credential rejection."}
+                    Помилка реєстру: {createCustomerMutation.error.message || "Відмова облікових даних."}
                   </p>
                 </div>
               )}
 
               <div className="flex flex-col-reverse sm:flex-row justify-end gap-3 pt-8 border-t border-zinc-50">
-                <button type="button" onClick={() => setShowCreateForm(false)} className="btn-shad-outline h-12 w-full sm:w-auto px-10 font-black uppercase tracking-widest text-[10px]">Decline</button>
+                <button type="button" onClick={() => setShowCreateForm(false)} className="btn-shad-outline h-12 w-full sm:w-auto px-10 font-black uppercase tracking-widest text-[10px]">Скасувати</button>
                 <button type="submit" disabled={createCustomerMutation.isLoading} className="btn-shad-primary h-12 w-full sm:w-auto px-12 font-black uppercase tracking-widest text-[10px] shadow-xl shadow-zinc-200">
-                  {createCustomerMutation.isLoading ? "Authorizing..." : "Create Registry"}
+                  {createCustomerMutation.isLoading ? "Авторизація..." : "Створити Запис"}
                 </button>
               </div>
             </form>
