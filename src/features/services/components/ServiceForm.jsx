@@ -8,7 +8,7 @@ const serviceSchema = z.object({
   description: z.string().min(1, "Опис є обов'язковим").max(500, "Опис перевищує максимальну довжину"),
   price: z.coerce.number().min(0, "Тариф не може бути від'ємним"),
   durationMinutes: z.coerce.number().min(5, "Тривалість має бути щонайменше 5 хвилин"),
-  imageUrl: z.string().optional().or(z.literal("")),
+  // imageUrl: z.string().optional().or(z.literal("")),
 });
 
 const ServiceForm = ({ service, onSubmit, onCancel }) => {
@@ -24,7 +24,7 @@ const ServiceForm = ({ service, onSubmit, onCancel }) => {
       description: "",
       price: 0,
       durationMinutes: 30,
-      imageUrl: "",
+      // imageUrl: "",
     },
   });
 
@@ -35,7 +35,7 @@ const ServiceForm = ({ service, onSubmit, onCancel }) => {
         description: service.description || "",
         price: service.price || 0,
         durationMinutes: service.durationMinutes || 30,
-        imageUrl: service.imageUrl || "",
+        // imageUrl: service.imageUrl || "",
       });
     }
   }, [service, reset]);
@@ -64,7 +64,7 @@ const ServiceForm = ({ service, onSubmit, onCancel }) => {
           {...register("description")}
           rows={3}
           className={`input-shad !h-auto py-3 font-medium text-sm resize-none ${errors.description ? "border-rose-500 ring-rose-500" : ""}`}
-            placeholder="Детальний опис послуги..."
+          placeholder="Детальний опис послуги..."
         />
         {errors.description && <p className="text-[10px] font-black text-rose-600 uppercase tracking-widest ml-1 shake">{errors.description.message}</p>}
       </div>
@@ -98,7 +98,7 @@ const ServiceForm = ({ service, onSubmit, onCancel }) => {
         </div>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-3 hidden">
         <label htmlFor="imageUrl" className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.2em] ml-1">
           Посилання на Зображення (Необов'язково)
         </label>
